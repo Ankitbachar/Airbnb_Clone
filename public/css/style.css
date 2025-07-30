@@ -40,6 +40,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .f-info-socials i {
@@ -49,25 +50,27 @@ body {
 
 .f-info {
     text-align: center;
-    height: 8rem;
+    min-height: 8rem;
     background-color: #ebebeb;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: space-evenly;
+    align-items: center;
+    padding: 1rem;
 }
 
 /* Cards */
-
 .listing-card {
    border: none !important; 
    margin-bottom: 2rem;
+   width: 100%;
 }
 
 .card-img-top {
     border-radius: 1rem !important;
     width: 100% !important;
     object-fit: cover !important;
+    height: 200px;
 }
 
 .card-body {
@@ -85,6 +88,7 @@ body {
 /* Card Effect */
 .card-img-overlay {
     opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .card-img-overlay:hover{
@@ -93,28 +97,30 @@ body {
 }
 
 /* New Page */
-
 .add-btn {
     background-color: #fe424d !important;
     border: none !important;
+    width: 100%;
 }
 
 /* Edit Page */
-
 .edit-btn {
     background-color: #fe424d !important;
     border: none !important;
+    width: 100%;
 }
 
 /* Show Page */
-
 .show-img {
     height: 30vh;
+    width: 100%;
+    object-fit: cover;
 }
 
 .btns {
    display: flex;
-
+   flex-wrap: wrap;
+   gap: 0.5rem;
 }
 
 .show-card {
@@ -124,5 +130,203 @@ body {
 
 #map {
     height: 400px;
-    width: 80vh;
+    width: 100%;
+    max-width: 80vh;
+}
+
+/* Responsive Media Queries */
+
+/* Large screens (desktops) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+    
+    .card-img-top {
+        height: 250px;
+    }
+    
+    .show-img {
+        height: 40vh;
+    }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 991.98px) {
+    .navbar {
+        height: auto;
+        padding: 1rem 0;
+    }
+    
+    .fa-compass {
+        font-size: 1.5rem;
+    }
+    
+    .card-img-top {
+        height: 180px;
+    }
+    
+    .show-img {
+        height: 25vh;
+    }
+    
+    #map {
+        height: 300px;
+        width: 100%;
+    }
+    
+    .f-info {
+        height: auto;
+        padding: 1.5rem 1rem;
+    }
+    
+    .f-info-links,
+    .f-info-socials,
+    .f-info-brand {
+        margin-bottom: 1rem;
+    }
+    
+    .f-info-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Small screens (mobile landscape) */
+@media (max-width: 767.98px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+    
+    .listing-card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .card-img-top {
+        height: 160px;
+    }
+    
+    .show-img {
+        height: 20vh;
+    }
+    
+    .btns {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .btns .btn {
+        width: 100%;
+    }
+    
+    #map {
+        height: 250px;
+    }
+    
+    .f-info-socials i {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    }
+    
+    .add-btn,
+    .edit-btn {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Extra small screens (mobile portrait) */
+@media (max-width: 575.98px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .navbar {
+        height: auto;
+        padding: 0.75rem 0;
+    }
+    
+    .fa-compass {
+        font-size: 1.25rem;
+    }
+    
+    .listing-card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-img-top {
+        height: 140px;
+        border-radius: 0.5rem !important;
+    }
+    
+    .show-img {
+        height: 25vh;
+    }
+    
+    #map {
+        height: 200px;
+    }
+    
+    .f-info {
+        padding: 1rem 0.5rem;
+        height: auto;
+    }
+    
+    .f-info-links,
+    .f-info-socials,
+    .f-info-brand {
+        font-size: 0.9rem;
+    }
+    
+    .f-info-links {
+        gap: 0.25rem;
+    }
+    
+    .f-info-socials i {
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .card-img-overlay:hover {
+        opacity: 0;
+    }
+    
+    .card-img-overlay:active {
+        opacity: 0.2;
+        background-color: white;
+    }
+    
+    .f-info-links a:hover {
+        text-decoration: none;
+    }
+    
+    .f-info-links a:active {
+        text-decoration: underline;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .f-info,
+    .btns {
+        display: none !important;
+    }
+    
+    .show-img {
+        height: auto;
+        max-height: 300px;
+    }
+    
+    #map {
+        display: none !important;
+    }
 }
